@@ -1,5 +1,13 @@
 {
   "version": 1,
   "isRoot": true,
-  "tools": {}
+  "tools": {
+    "versionize": {
+      "version": "2.3.1",
+      "commands": [
+        "versionize"
+      ],
+      "rollForward": false
+    }
+  }
 }
