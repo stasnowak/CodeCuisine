@@ -197,4 +197,5 @@ public class Program
 
         Console.WriteLine($"Directory.Build.props file generated at: {propsFilePath}");
     }
+    
 }

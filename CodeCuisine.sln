@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeCuisine", "CodeCuisine\CodeCuisine.csproj", "{5DB69392-97EB-4DAA-A4D0-8AEE37931C36}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeCuisine.Tests.Snapshot", "CodeCuisine.Tests.Snapshot\CodeCuisine.Tests.Snapshot.csproj", "{1569A4DB-6085-4A62-98ED-0491D70ACC33}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{5DB69392-97EB-4DAA-A4D0-8AEE37931C36}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5DB69392-97EB-4DAA-A4D0-8AEE37931C36}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5DB69392-97EB-4DAA-A4D0-8AEE37931C36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1569A4DB-6085-4A62-98ED-0491D70ACC33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1569A4DB-6085-4A62-98ED-0491D70ACC33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1569A4DB-6085-4A62-98ED-0491D70ACC33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1569A4DB-6085-4A62-98ED-0491D70ACC33}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
