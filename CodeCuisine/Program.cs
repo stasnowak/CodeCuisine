@@ -1,5 +1,9 @@
 ﻿using System.Xml.Linq;
-using CliWrap;
+
+using CodeCuisine.Brokers;
+using CodeCuisine.Directories.Builds;
+using CodeCuisine.Gits;
+
 using CommandDotNet;
 using CommandDotNet.NameCasing;
 
@@ -12,47 +16,31 @@ public class Program
         return new AppRunner<Program>()
             .UseNameCasing(Case.KebabCase)
             .UseDefaultMiddleware()
+            .RegisterSimpleInjector()
             .Run(args);
     }
 
+    [DefaultCommand]
     [Command(Description = "Run everything i have to do to setup a new project.")]
-    public async Task All(IConsole console)
+    public async Task All(IGitIgnoreService gitignoreService)
     {
-        Build();
-        await Gitignore();
-        Packages(console);
+        await gitignoreService.WriteGitIgnoreAsync();
     }
-    
-    [Command(Description = "Add default .gitignore")]
-    public async Task Gitignore([Option]bool force = false)
-    {
-        if (File.Exists(".gitignore") && !force)
-        {
-            return;
-        }
-        
-        var result = await Cli.Wrap("dotnet")
-            .WithArguments("new gitignore --force")
-            .ExecuteAsync();
 
-        if (!result.IsSuccess)
-        {
-            throw new Exception("Failed to create .gitignore");
-        }
+    [Command(Description = "Add default .gitignore")]
+    public async Task Gitignore(IGitIgnoreService gitignoreService)
+    {
+        await gitignoreService.WriteGitIgnoreAsync();
     }
-    
-    [Command(Description = "Add or modify version entries to Directory.Packages.props file from all .csproj files in the solution.")]
+
+    [Command(Description =
+        "Add or modify version entries to Directory.Packages.props file from all .csproj files in the solution.")]
     public void Packages(IConsole console)
     {
-        var solutionPath = FindSolutionPath();
-        if (solutionPath == null)
-        {
-            console.WriteLine("Solution file not found.");
-            return;
-        }
+        var solutionPath = new SystemBroker().ReturnProjectRootDirectoryPath();
 
         var projectFiles =
-            Directory.GetFiles(Path.GetDirectoryName(solutionPath)!, "*.csproj", SearchOption.AllDirectories);
+            Directory.GetFiles(Path.GetDirectoryName(solutionPath) !, "*.csproj", SearchOption.AllDirectories);
 
         if (projectFiles.Length == 0)
         {
@@ -90,21 +78,16 @@ public class Program
             }
         }
 
-        GenerateDirectoryPackagesProps(Path.GetDirectoryName(solutionPath)!, packages);
+        GenerateDirectoryPackagesProps(Path.GetDirectoryName(solutionPath) !, packages);
     }
 
     [Command(Description = "Add or modify Directory.Build.props file.")]
     public void Build()
     {
-        var solutionPath = FindSolutionPath();
-        if (solutionPath == null)
-        {
-            Console.WriteLine("Solution file not found.");
-            return;
-        }
+        var solutionPath = new SystemBroker().ReturnProjectRootDirectoryPath();
 
         var projectFiles =
-            Directory.GetFiles(Path.GetDirectoryName(solutionPath)!, "*.csproj", SearchOption.AllDirectories);
+            Directory.GetFiles(Path.GetDirectoryName(solutionPath) !, "*.csproj", SearchOption.AllDirectories);
 
         if (projectFiles.Length == 0)
         {
@@ -112,27 +95,8 @@ public class Program
             return;
         }
 
-        GenerateDirectoryBuildProps(Path.GetDirectoryName(solutionPath)!);
+        //GenerateDirectoryBuildProps(Path.GetDirectoryName(solutionPath) !);
     }
-
-    private string? FindSolutionPath()
-    {
-        var currentDirectory = Directory.GetCurrentDirectory();
-
-        while (currentDirectory != null)
-        {
-            var solutionFiles = Directory.GetFiles(currentDirectory, "*.sln");
-            if (solutionFiles.Length > 0)
-            {
-                return solutionFiles.FirstOrDefault();
-            }
-
-            currentDirectory = Directory.GetParent(currentDirectory)?.FullName;
-        }
-
-        return null;
-    }
-
 
     private void GenerateDirectoryPackagesProps(string solutionDirectory, Dictionary<string, string> packages)
     {
@@ -153,49 +117,30 @@ public class Program
 
                 packageReference.Attribute("Version")?.Remove();
             }
-            
         }
 
         var document = new XDocument(
             new XDeclaration("1.0", "utf-8", "yes"),
-            new XElement("Project",
-                new XElement("PropertyGroup",
-                    new XElement("ManagePackageVersionsCentrally", "true")
-                ),
-                new XElement("ItemGroup",
+            new XElement(
+                "Project",
+                new XElement(
+                    "PropertyGroup",
+                    new XElement("ManagePackageVersionsCentrally", "true")),
+                new XElement(
+                    "ItemGroup",
                     packages.Select(package =>
-                        new XElement("PackageVersion",
+                        new XElement(
+                            "PackageVersion",
                             new XAttribute("Include", package.Key),
-                            new XAttribute("Version", package.Value)
-                        )
-                    )
-                )
-            )
-        );
+                            new XAttribute("Version", package.Value))))));
 
         document.Save(propsFilePath);
 
         Console.WriteLine($"Directory.Packages.props file generated at: {propsFilePath}");
     }
 
-    private void GenerateDirectoryBuildProps(string solutionDirectory)
+    private async Task GenerateDirectoryBuildProps(IPropsService propsService)
     {
-        var propsFilePath = Path.Combine(solutionDirectory, "Directory.Build.props");
-
-        var document = new XDocument(
-            new XDeclaration("1.0", "utf-8", "yes"),
-            new XElement("Project",
-                new XElement("PropertyGroup",
-                    new XElement("TargetFramework", "net9.0"),
-                    new XElement("Nullable", "enable"),
-                    new XElement("ImplicitUsings", "enable")
-                )
-            )
-        );
-
-        document.Save(propsFilePath);
-
-        Console.WriteLine($"Directory.Build.props file generated at: {propsFilePath}");
+        await propsService.Generate();
     }
-    
 }
