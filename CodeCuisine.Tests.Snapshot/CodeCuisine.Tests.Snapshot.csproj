@@ -1,12 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
-
-    <PropertyGroup>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
-        <OutputType>Exe</OutputType>
-        <RootNamespace>CodeCuisine.Tests.Snapshot</RootNamespace>
-        <TargetFramework>net9.0</TargetFramework>
-        <!--
+  <PropertyGroup>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>CodeCuisine.Tests.Snapshot</RootNamespace>
+    <TargetFramework>net9.0</TargetFramework>
+    <!--
         To enable the Microsoft Testing Platform 'dotnet test' experience, add property:
           <TestingPlatformDotnetTestSupport>true</TestingPlatformDotnetTestSupport>
     
@@ -16,25 +16,23 @@
         For more information on Microsoft Testing Platform support in xUnit.net, please visit:
           https://xunit.net/docs/getting-started/v3/microsoft-testing-platform
         -->
-    </PropertyGroup>
-
-    <ItemGroup>
-        <Content Include="xunit.runner.json" CopyToOutputDirectory="PreserveNewest"/>
-    </ItemGroup>
-
-    <ItemGroup>
-        <Using Include="Xunit"/>
-    </ItemGroup>
-
-    <ItemGroup>
-        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.13.0"/>
-        <PackageReference Include="Verify.XunitV3" Version="30.7.3" />
-        <PackageReference Include="xunit.v3" Version="3.0.1"/>
-        <PackageReference Include="xunit.runner.visualstudio" Version="3.1.4"/>
-    </ItemGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\CodeCuisine\CodeCuisine.csproj" />
-    </ItemGroup>
-
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="xunit.runner.json" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+  <ItemGroup>
+    <Using Include="Xunit" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="Verify.XunitV3" />
+    <PackageReference Include="xunit.v3" />
+    <PackageReference Include="xunit.runner.visualstudio">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CodeCuisine\CodeCuisine.csproj" />
+  </ItemGroup>
 </Project>

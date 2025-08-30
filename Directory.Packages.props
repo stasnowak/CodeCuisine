@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Project>
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageVersion Include="CliWrap" Version="3.9.0" />
+    <PackageVersion Include="CommandDotNet" Version="8.1.1" />
+    <PackageVersion Include="CommandDotNet.IoC.SimpleInjector" Version="6.1.0" />
+    <PackageVersion Include="CommandDotNet.NameCasing" Version="5.1.0" />
+    <PackageVersion Include="StyleCop.Analyzers" Version="1.1.118" />
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
+    <PackageVersion Include="Verify.XunitV3" Version="30.10.0" />
+    <PackageVersion Include="xunit.v3" Version="3.0.1" />
+    <PackageVersion Include="xunit.runner.visualstudio" Version="3.1.4" />
+  </ItemGroup>
+</Project>

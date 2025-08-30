@@ -1,5 +1,8 @@
 ﻿# CodeCuisine (Not Yet Released)
 
+# To Do
+- Make Override Optional Force Option
+
 A tiny CLI to bootstrap a new .NET solution with sensible defaults.
 
 CodeCuisine helps you:

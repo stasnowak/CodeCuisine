@@ -4,7 +4,7 @@ using CodeCuisine.Brokers;
 
 using CommandDotNet;
 
-namespace CodeCuisine.Gits;
+namespace CodeCuisine.Services;
 
 public class GitIgnoreService : IGitIgnoreService
 {
@@ -17,7 +17,7 @@ public class GitIgnoreService : IGitIgnoreService
         this.consoleBroker = consoleBroker;
     }
 
-    public async Task WriteGitIgnoreAsync()
+    public async Task WriteAsync()
     {
         var projectRootDirectoryPath = this.systemBroker.ReturnProjectRootDirectoryPath();
         var gitignoreFilePath = Path.Combine(projectRootDirectoryPath, ".gitignore");

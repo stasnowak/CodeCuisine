@@ -2,21 +2,26 @@
 
 using CodeCuisine.Brokers;
 
-namespace CodeCuisine.Directories.Builds;
+using CommandDotNet;
 
-public class PropsService : IPropsService
+namespace CodeCuisine.Services;
+
+public class BuildService : IBuildService
 {
     private readonly ISystemBroker systemBroker;
+    private readonly IConsoleBroker consoleBroker;
 
-    public PropsService(ISystemBroker systemBroker)
+    public BuildService(ISystemBroker systemBroker,
+        IConsoleBroker consoleBroker)
     {
         this.systemBroker = systemBroker;
+        this.consoleBroker = consoleBroker;
     }
 
-    public async Task Generate()
+    public async Task WriteAsync()
     {
         var projectRootDirectoryPath = this.systemBroker.ReturnProjectRootDirectoryPath();
-        var propsFilePath = Path.Combine(projectRootDirectoryPath, "Directory.Build.props");
+        var buildFilePath = Path.Combine(projectRootDirectoryPath, "Directory.Build.props");
         var stringBuilder = new StringBuilder()
             .Append(
                 """
@@ -29,7 +34,7 @@ public class PropsService : IPropsService
                   </PropertyGroup>
                 </Project>
                 """);
-        await using var fs = new FileStream(propsFilePath, FileMode.Create, FileAccess.Write, FileShare.None);
+        await using var fs = new FileStream(buildFilePath, FileMode.Create, FileAccess.Write, FileShare.None);
         await using var writer = new StreamWriter(fs, new UTF8Encoding(false));
 
         foreach (var chunk in stringBuilder.GetChunks())
@@ -38,5 +43,7 @@ public class PropsService : IPropsService
         }
 
         await writer.FlushAsync();
+
+        this.consoleBroker.WriteLine($"Directory.Build.props file generated at: {buildFilePath}");
     }
 }
