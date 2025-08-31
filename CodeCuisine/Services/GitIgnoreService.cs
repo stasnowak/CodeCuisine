@@ -1,9 +1,5 @@
 ﻿using System.Text;
 
-using CodeCuisine.Brokers;
-
-using CommandDotNet;
-
 namespace CodeCuisine.Services;
 
 public class GitIgnoreService : IGitIgnoreService

@@ -15,9 +15,5 @@
     <PackageReference Include="CommandDotNet" />
     <PackageReference Include="CommandDotNet.IoC.SimpleInjector" />
     <PackageReference Include="CommandDotNet.NameCasing" />
-    <PackageReference Include="StyleCop.Analyzers">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
   </ItemGroup>
 </Project>

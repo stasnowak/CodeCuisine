@@ -1,5 +1,3 @@
-﻿using CommandDotNet;
-
-namespace CodeCuisine.Brokers;
+﻿namespace CodeCuisine.Brokers;
 
 public interface IConsoleBroker : IConsole;

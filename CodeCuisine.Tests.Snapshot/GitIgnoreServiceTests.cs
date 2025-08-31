@@ -11,7 +11,7 @@ public class GitIgnoreServiceTests
         await new GitIgnoreService(
             new SystemBroker(),
             new ConsoleBroker()
-            ).WriteAsync();
+        ).WriteAsync();
         
         await VerifyFile("../../../../.gitignore");
     }

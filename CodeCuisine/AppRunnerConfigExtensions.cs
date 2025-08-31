@@ -1,11 +1,6 @@
-﻿using CodeCuisine.Brokers;
-using CodeCuisine.Services;
+﻿namespace CodeCuisine;
 
-using CommandDotNet;
 using CommandDotNet.IoC.SimpleInjector;
-using CommandDotNet.Rendering;
-
-namespace CodeCuisine;
 
 public static class AppRunnerConfigExtensions
 {
@@ -19,7 +14,7 @@ public static class AppRunnerConfigExtensions
         container.Register<IGitIgnoreService, GitIgnoreService>();
         container.Register<IPackagesService, PackagesService>();
 
-        foreach ((Type type, SubcommandAttribute? subcommandAttr) in appRunner.GetCommandClassTypes())
+        foreach ((Type type, SubcommandAttribute? _) in appRunner.GetCommandClassTypes())
         {
             container.Register(type);
         }
