@@ -1,17 +1,26 @@
 using CodeCuisine.Brokers;
-using CodeCuisine.Services;
+using CodeCuisine.Features;
+using CodeCuisine.Options;
 
 namespace CodeCuisine.Tests.Snapshot;
 
 public class GitIgnoreServiceTests
 {
-    [Fact]
-    public async Task ShouldGenerateGitIgnoreFileWhenCalled()
+    [Theory]
+    [InlineData(false, false)]
+    [InlineData(true, false)]
+    public async Task ShouldGenerateGitIgnoreFileWhenCalled(bool force, bool dryRun)
     {
-        await new GitIgnoreService(
+        var defaultOption = new DefaultOption
+        {
+            Force = force,
+            DryRun = dryRun,
+        };
+        
+        await new Gitignore(
             new SystemBroker(),
             new ConsoleBroker()
-        ).WriteAsync();
+        ).Default(defaultOption);
         
         await VerifyFile("../../../../.gitignore");
     }

@@ -1,4 +1,5 @@
-﻿using CommandDotNet.NameCasing;
+﻿using CodeCuisine.Features;
+using CommandDotNet.NameCasing;
 
 namespace CodeCuisine;
 
@@ -13,33 +14,9 @@ public class Program
             .Run(args);
     }
 
-    [DefaultCommand]
-    [Command(Description = "Run everything i have to do to setup a new project.")]
-    public async Task All(
-        IBuildService buildService,
-        IGitIgnoreService gitignoreService,
-        IPackagesService packagesService)
-    {
-        await buildService.WriteAsync();
-        await gitignoreService.WriteAsync();
-        await packagesService.WriteAsync();
-    }
-
-    [Command(Description = "Add default Directory.Build.props")]
-    public async Task Props(IBuildService buildService)
-    {
-        await buildService.WriteAsync();
-    }
-
-    [Command(Description = "Add default .gitignore")]
-    public async Task Gitignore(IGitIgnoreService gitignoreService)
-    {
-        await gitignoreService.WriteAsync();
-    }
-
-    [Command(Description = "Add default Directory.Packages.props")]
-    public async Task Packages(IPackagesService packagesService)
-    {
-        await packagesService.WriteAsync();
-    }
+    [Subcommand] public Gitignore Gitignore { get; set; }
+    
+    [Subcommand] public Build Build { get; set; }
+    
+    [Subcommand] public Packages Packages { get; set; }
 }

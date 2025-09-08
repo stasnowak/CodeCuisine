@@ -10,9 +10,6 @@ public static class AppRunnerConfigExtensions
 
         container.Register<IConsoleBroker, ConsoleBroker>();
         container.Register<ISystemBroker, SystemBroker>();
-        container.Register<IBuildService, BuildService>();
-        container.Register<IGitIgnoreService, GitIgnoreService>();
-        container.Register<IPackagesService, PackagesService>();
 
         foreach ((Type type, SubcommandAttribute? _) in appRunner.GetCommandClassTypes())
         {

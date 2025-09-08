@@ -24,17 +24,14 @@ The tool uses kebab-case command names and is powered by CommandDotNet.
 
 From the repository root:
 
-- Run all setup steps
-  - `dotnet run --project CodeCuisine -- all`
-
 - Generate/refresh Directory.Build.props
   - `dotnet run --project CodeCuisine -- build`
 
 - Centralize package versions into Directory.Packages.props
   - `dotnet run --project CodeCuisine -- packages`
 
-- Add a default .gitignore (use `--force` to overwrite if it exists)
-  - `dotnet run --project CodeCuisine -- gitignore --force`
+- Add a default .gitignore (use `-f` or `--force` to overwrite if it exists)
+  - `dotnet run --project CodeCuisine -- gitignore`
 
 Notes:
 - Commands search upward from the current directory to find a `.sln` file.
@@ -43,6 +40,8 @@ Notes:
   - Collects `PackageReference` versions
   - Writes/merges them into `Directory.Packages.props`
   - Removes `Version` attributes from the `.csproj` files (central package management)
+- All commands support a dry run; add `-d` or `--dry-run` to preview changes without writing files.
+- Where applicable, add `-f` or `--force` to overwrite existing files.
 
 ## Global tool (optional)
 

@@ -2,7 +2,7 @@
 
 public class SystemBroker : ISystemBroker
 {
-    public string ReturnProjectRootDirectoryPath()
+    public string GetProjectRootDirectoryPath()
     {
         var currentDirectory = new DirectoryInfo(Directory.GetCurrentDirectory());
 
@@ -10,7 +10,8 @@ public class SystemBroker : ISystemBroker
         {
             if (currentDirectory.EnumerateFileSystemInfos("*", SearchOption.TopDirectoryOnly)
                 .Any(f => f.Extension.Equals(".sln", StringComparison.OrdinalIgnoreCase) |
-                          f.Name.Equals(".git", StringComparison.OrdinalIgnoreCase)))
+                          f.Name.Equals(".git", StringComparison.OrdinalIgnoreCase) |
+                          f.Name.Equals("global.json", StringComparison.OrdinalIgnoreCase)))
             {
                 Console.WriteLine($"Found solution at: {currentDirectory.FullName}");
                 return currentDirectory.FullName;
@@ -18,10 +19,12 @@ public class SystemBroker : ISystemBroker
 
             currentDirectory = currentDirectory.Parent;
 
-            if (currentDirectory == null)
-            {
-                throw new Exception("Project root not found.");
-            }
+            ArgumentNullException.ThrowIfNull(currentDirectory);
         }
+    }
+    
+    public bool FileExists(string path)
+    {
+        return File.Exists(path);
     }
 }

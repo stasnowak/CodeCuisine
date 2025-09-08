@@ -3,9 +3,6 @@
   <PropertyGroup>
     <Version>0.0.3</Version>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net9.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
     <PackAsTool>true</PackAsTool>
     <ToolCommandName>cc</ToolCommandName>
     <EnableNETAnalyzers>true</EnableNETAnalyzers>

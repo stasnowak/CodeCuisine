@@ -2,5 +2,6 @@
 
 public interface ISystemBroker
 {
-    string ReturnProjectRootDirectoryPath();
+    string GetProjectRootDirectoryPath();
+    bool FileExists(string path);
 }
