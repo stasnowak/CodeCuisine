@@ -9,6 +9,8 @@ jobs:
   release:
     name: "Build, Test, Pack"
     runs-on: ubuntu-latest
+    env:
+      NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
     steps:
       - name: "📥 - Check Out"
         uses: actions/checkout@v5
@@ -39,5 +41,5 @@ jobs:
           path: ./artifacts
 
       - name: "📦 - Publish to NuGet"
-        if: ${{ secrets.NUGET_API_KEY != '' }}
+        if: ${{ env.NUGET_API_KEY != '' }}
         run: dotnet nuget push "./artifacts/*.nupkg" --skip-duplicate --source https://api.nuget.org/v3/index.json --api-key "${{ secrets.NUGET_API_KEY }}"
