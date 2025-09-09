@@ -27,12 +27,13 @@ jobs:
         run: dotnet build --configuration Release --no-restore
 
       - name: "🧪 - Test (Release)"
-        run: dotnet test --configuration Release --no-restore --no-build --logger prettier
+        run: dotnet test --configuration Release --no-restore --no-build --logger "trx;LogFileName=results.trx" --results-directory ./artifacts
 
       - name: "📦 - Pack NuGet"
-        run: dotnet pack --configuration Release --no-restore --no-build
+        run: dotnet pack --configuration Release --no-restore --no-build -o ./artifacts
 
       - name: "🌠 - Upload Artifacts"
         uses: actions/upload-artifact@v4
         with:
-          path: ./**/*.nupkg
+          name: ${{ github.ref_name }}
+          path: ./artifacts
