@@ -1,5 +1,5 @@
-[![CodeQL](https://github.com/stasnowak/CodeCuisine/actions/workflows/codeql.yml/badge.svg)](https://github.com/stasnowak/CodeCuisine/actions/workflows/codeql.yml)
-[![🚀 • .NET CI](https://github.com/stasnowak/CodeCuisine/actions/workflows/build.yml/badge.svg)](https://github.com/stasnowak/CodeCuisine/actions/workflows/build.yml)
+[![🔬 • CodeQL](https://github.com/stasnowak/CodeCuisine/actions/workflows/codeql.yml/badge.svg)](https://github.com/stasnowak/CodeCuisine/actions/workflows/codeql.yml)
+[![🛰️ • .NET CI](https://github.com/stasnowak/CodeCuisine/actions/workflows/build.yml/badge.svg)](https://github.com/stasnowak/CodeCuisine/actions/workflows/build.yml)
  
  # CodeCuisine (Not Yet Released)
 
