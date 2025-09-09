@@ -37,3 +37,7 @@ jobs:
         with:
           name: ${{ github.ref_name }}
           path: ./artifacts
+
+      - name: "📦 - Publish to NuGet"
+        if: ${{ secrets.NUGET_API_KEY != '' }}
+        run: dotnet nuget push "./artifacts/*.nupkg" --skip-duplicate --source https://api.nuget.org/v3/index.json --api-key "${{ secrets.NUGET_API_KEY }}"
