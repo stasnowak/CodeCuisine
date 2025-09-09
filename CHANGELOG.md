@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="0.0.4-rc.1"></a>
+## [0.0.4-rc.1](https://www.github.com/stasnowak/CodeCuisine/releases/tag/v0.0.4-rc.1) (2025-09-10)
+
+### Other
+
+* fix artifact upload path in release workflow ([05813af](https://www.github.com/stasnowak/CodeCuisine/commit/05813af437638759337cc09c397f809ebce5e3a7))
+
 <a name="0.0.4-rc.0"></a>
 ## [0.0.4-rc.0](https://www.github.com/stasnowak/CodeCuisine/releases/tag/v0.0.4-rc.0) (2025-09-10)
 
