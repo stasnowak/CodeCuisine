@@ -10,6 +10,7 @@ on:
 
 jobs:
   build:
+    name: "Build, Test"
     runs-on: ubuntu-latest
     steps:
       - name: "📥 - Check Out"
@@ -27,4 +28,4 @@ jobs:
         run: dotnet build --no-restore
 
       - name: "🧪 - Test"
-        run: dotnet test --no-build --logger prettier
+        run: dotnet test --no-restore --no-build --logger prettier

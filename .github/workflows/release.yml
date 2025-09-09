@@ -1,0 +1,38 @@
+﻿name: "🚀 • Release"
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  release:
+    name: "Build, Test, Pack"
+    runs-on: ubuntu-latest
+    steps:
+      - name: "📥 - Check Out"
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: "🛠️ - Setup .NET"
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "9.0.x"
+
+      - name: "📦 - Restore"
+        run: dotnet restore
+
+      - name: "🏗️ - Build (Release)"
+        run: dotnet build --configuration Release --no-restore
+
+      - name: "🧪 - Test (Release)"
+        run: dotnet test --configuration Release --no-restore --no-build --logger prettier
+
+      - name: "📦 - Pack NuGet"
+        run: dotnet pack --configuration Release --no-restore --no-build
+
+      - name: "🌠 - Upload Artifacts"
+        uses: actions/upload-artifact@v4
+        with:
+          path: /**/*.nupkg
