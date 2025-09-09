@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="0.0.4-rc.3"></a>
+## [0.0.4-rc.3](https://www.github.com/stasnowak/CodeCuisine/releases/tag/v0.0.4-rc.3) (2025-09-10)
+
+### Other
+
+* enhance release workflow for NuGet publishing and update project metadata ([0084098](https://www.github.com/stasnowak/CodeCuisine/commit/0084098521cbef2f692a043931a093da07f72531))
+
 <a name="0.0.4-rc.2"></a>
 ## [0.0.4-rc.2](https://www.github.com/stasnowak/CodeCuisine/releases/tag/v0.0.4-rc.2) (2025-09-10)
 
