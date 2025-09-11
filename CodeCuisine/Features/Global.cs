@@ -1,7 +1,4 @@
-﻿using System.Text;
-using CodeCuisine.Options;
-
-namespace CodeCuisine.Features;
+﻿namespace CodeCuisine.Features;
 
 [Subcommand]
 [Command("global", Description = "Add default global.json file")]

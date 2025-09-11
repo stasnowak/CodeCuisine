@@ -1,7 +1,4 @@
-﻿using System.Text;
-using CodeCuisine.Options;
-
-namespace CodeCuisine.Features;
+﻿namespace CodeCuisine.Features;
 
 [Subcommand]
 [Command("gitignore", Description = "Add default .gitignore")]

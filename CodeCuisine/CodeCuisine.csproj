@@ -1,31 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
-    <PropertyGroup>
-        <Version>0.0.4-rc.4</Version>
-        <OutputType>Exe</OutputType>
-        <EnableNETAnalyzers>true</EnableNETAnalyzers>
-        <PackageId>CodeCuisine</PackageId>
-        <PackAsTool>true</PackAsTool>
-        <ToolCommandName>cc</ToolCommandName>
-        <PackageReadmeFile>README.md</PackageReadmeFile>
-        <PackageIcon>icon.png</PackageIcon>
-        <Authors>snwk</Authors>
-        <Description>CodeCuisine is a .NET-based command-line tool designed to streamline common developer workflows from the terminal via a concise cc command. It provides a structured, discoverable command set and integrates with external executables to orchestrate tasks end-to-end. The tool emphasizes pragmatic automation and quick scaffolding for project essentials (e.g., generating standard configuration files like .gitignore) while keeping commands cohesive and easy to script.
+  <PropertyGroup>
+    <Version>0.0.4-rc.4</Version>
+    <OutputType>Exe</OutputType>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <PackageId>CodeCuisine</PackageId>
+    <PackAsTool>true</PackAsTool>
+    <ToolCommandName>cc</ToolCommandName>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>icon.png</PackageIcon>
+    <Authors>snwk</Authors>
+    <Description>CodeCuisine is a .NET-based command-line tool designed to streamline common developer workflows from the terminal via a concise cc command. It provides a structured, discoverable command set and integrates with external executables to orchestrate tasks end-to-end. The tool emphasizes pragmatic automation and quick scaffolding for project essentials (e.g., generating standard configuration files like .gitignore) while keeping commands cohesive and easy to script.
         </Description>
-        <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <RepositoryUrl>https://github.com/stasnowak/CodeCuisine</RepositoryUrl>
-        <RepositoryType>git</RepositoryType>
-        <RepositoryBranch>master</RepositoryBranch>
-        <Title>Code Cuisine (cc)</Title>
-    </PropertyGroup>
-    <ItemGroup>
-        <PackageReference Include="CliWrap"/>
-        <PackageReference Include="CommandDotNet"/>
-        <PackageReference Include="CommandDotNet.IoC.SimpleInjector"/>
-        <PackageReference Include="CommandDotNet.NameCasing"/>
-    </ItemGroup>
-    <ItemGroup>
-        <None Include="..\README.md" Pack="true" PackagePath="/"/>
-        <None Include="..\icon.png" Pack="true" PackagePath="\"/>
-    </ItemGroup>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/stasnowak/CodeCuisine</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryBranch>master</RepositoryBranch>
+    <Title>Code Cuisine (cc)</Title>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="CliWrap" />
+    <PackageReference Include="CommandDotNet" />
+    <PackageReference Include="CommandDotNet.IoC.SimpleInjector" />
+    <PackageReference Include="CommandDotNet.NameCasing" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\README.md" Pack="true" PackagePath="/" />
+    <None Include="..\icon.png" Pack="true" PackagePath="\" />
+  </ItemGroup>
 </Project>

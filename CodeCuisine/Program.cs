@@ -15,10 +15,12 @@ public class Program
     }
 
     [Subcommand] public Build Build { get; set; }
-    
+
+    [Subcommand] public Editorconfig Editorconfig { get; set; }
+
     [Subcommand] public Gitignore Gitignore { get; set; }
-    
+
     [Subcommand] public Global Global { get; set; }
-    
+
     [Subcommand] public Packages Packages { get; set; }
 }
