@@ -14,9 +14,11 @@ public class Program
             .Run(args);
     }
 
+    [Subcommand] public Build Build { get; set; }
+    
     [Subcommand] public Gitignore Gitignore { get; set; }
     
-    [Subcommand] public Build Build { get; set; }
+    [Subcommand] public Global Global { get; set; }
     
     [Subcommand] public Packages Packages { get; set; }
 }
