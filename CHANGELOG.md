@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="0.0.4"></a>
+## [0.0.4](https://www.github.com/stasnowak/CodeCuisine/releases/tag/v0.0.4) (2025-09-12)
+
+### Other
+
+* add `Global` command to generate `global.json` with tests and cleanup unused snapshots ([c13ec46](https://www.github.com/stasnowak/CodeCuisine/commit/c13ec469b8bfe13ed4eee0605bff2b77a9cdd934))
+* add verified `.editorconfig` snapshots and update test project properties ([231a376](https://www.github.com/stasnowak/CodeCuisine/commit/231a376bc38f5f76de001cb0d710a38e19eeddd5))
+* update README with usage, installation steps, and additional commands ([c06a712](https://www.github.com/stasnowak/CodeCuisine/commit/c06a712e9006aa49fe3a706a6d2e93c25292b45d))
+
 <a name="0.0.4-rc.4"></a>
 ## [0.0.4-rc.4](https://www.github.com/stasnowak/CodeCuisine/releases/tag/v0.0.4-rc.4) (2025-09-10)
 
