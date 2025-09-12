@@ -23,4 +23,6 @@ public class Program
     [Subcommand] public Global Global { get; set; }
 
     [Subcommand] public Packages Packages { get; set; }
+
+    [Subcommand] public Info Info { get; set; }
 }
