@@ -36,6 +36,9 @@ Local (per-repo) tool:
   - `cc --help`
   - `cc <command> --help`
 
+- Show project setup status & suggestions
+  - `cc info`
+
 - Generate/refresh Directory.Build.props
   - `cc build`
   - Options: `-f|--force` overwrite if exists, `-d|--dry-run` preview without writing
@@ -60,3 +63,18 @@ Local (per-repo) tool:
 - Commands search upward from the current directory to find a `.sln` file when relevant.
 - Use `-d|--dry-run` to preview changes; nothing is written to disk.
 - Use `-f|--force` to overwrite existing files where applicable.
+
+
+## Dev Notes
+- Commit message types:
+  - build
+  - chore
+  - ci
+  - docs
+  - feat
+  - fix
+  - perf
+  - refactor
+  - revert
+  - style
+  - test

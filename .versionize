@@ -1,7 +1,7 @@
 ﻿{
   "changelog": {
-    "header": "My Changelog",
-    "includeAllCommits": true,
+    "header": "CHANGELOG",
+    "includeAllCommits": false,
     "sections": [
       {
         "type": "feat",
@@ -11,7 +11,7 @@
       {
         "type": "fix",
         "section": "🐛 Bug Fixes",
-        "hidden": true
+        "hidden": false
       },
       {
         "type": "perf",

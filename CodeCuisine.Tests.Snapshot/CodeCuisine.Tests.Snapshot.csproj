@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
-    <PropertyGroup>
-        <OutputType>Exe</OutputType>
-        <RootNamespace>CodeCuisine.Tests.Snapshot</RootNamespace>
-        <!--
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>CodeCuisine.Tests.Snapshot</RootNamespace>
+    <!--
                 To enable the Microsoft Testing Platform 'dotnet test' experience, add property:
                   <TestingPlatformDotnetTestSupport>true</TestingPlatformDotnetTestSupport>
             
@@ -13,27 +13,27 @@
                 For more information on Microsoft Testing Platform support in xUnit.net, please visit:
                   https://xunit.net/docs/getting-started/v3/microsoft-testing-platform
                 -->
-    </PropertyGroup>
-    <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
-        <ContinousIntegrationBuild>true</ContinousIntegrationBuild>
-    </PropertyGroup>
-    <ItemGroup>
-        <Content Include="xunit.runner.json" CopyToOutputDirectory="PreserveNewest"/>
-    </ItemGroup>
-    <ItemGroup>
-        <Using Include="Xunit"/>
-    </ItemGroup>
-    <ItemGroup>
-        <PackageReference Include="Microsoft.NET.Test.Sdk"/>
-        <PackageReference Include="PrettierTestLogger"/>
-        <PackageReference Include="Verify.XunitV3"/>
-        <PackageReference Include="xunit.v3"/>
-        <PackageReference Include="xunit.runner.visualstudio">
-            <PrivateAssets>all</PrivateAssets>
-            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-        </PackageReference>
-    </ItemGroup>
-    <ItemGroup>
-        <ProjectReference Include="..\CodeCuisine\CodeCuisine.csproj"/>
-    </ItemGroup>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
+    <ContinousIntegrationBuild>true</ContinousIntegrationBuild>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="xunit.runner.json" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+  <ItemGroup>
+    <Using Include="Xunit" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="PrettierTestLogger" />
+    <PackageReference Include="Verify.XunitV3" />
+    <PackageReference Include="xunit.v3" />
+    <PackageReference Include="xunit.runner.visualstudio">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CodeCuisine\CodeCuisine.csproj" />
+  </ItemGroup>
 </Project>

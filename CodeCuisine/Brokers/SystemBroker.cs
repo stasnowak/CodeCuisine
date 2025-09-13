@@ -13,7 +13,6 @@ public class SystemBroker : ISystemBroker
                           f.Name.Equals(".git", StringComparison.OrdinalIgnoreCase) |
                           f.Name.Equals("global.json", StringComparison.OrdinalIgnoreCase)))
             {
-                Console.WriteLine($"Found solution at: {currentDirectory.FullName}");
                 return currentDirectory.FullName;
             }
 
@@ -22,7 +21,7 @@ public class SystemBroker : ISystemBroker
             ArgumentNullException.ThrowIfNull(currentDirectory);
         }
     }
-    
+
     public bool FileExists(string path)
     {
         return File.Exists(path);
