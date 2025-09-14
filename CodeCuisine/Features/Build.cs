@@ -47,6 +47,7 @@ public class Build
                                                                  <TargetFramework>net9.0</TargetFramework>
                                                                  <Nullable>enable</Nullable>
                                                                  <ImplicitUsings>enable</ImplicitUsings>
+                                                                 <EnableNETAnalyzers>true</EnableNETAnalyzers>
                                                                </PropertyGroup>
                                                              </Project>
                                                              """;
