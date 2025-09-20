@@ -32,6 +32,10 @@ Local (per-repo) tool:
 
 ## Usage
 
+- Run everything (default)
+  - `cc`
+  - Options: `-f|--force` to overwrite existing files where applicable, `-d|--dry-run` to preview without writing
+
 - Show help
   - `cc --help`
   - `cc <command> --help`
